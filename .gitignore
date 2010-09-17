@@ -22,3 +22,11 @@ log/*.pid
 log/*.lock
 tmp/**/*
 tmp/*
+*.bak
+*.old
+.*
+~$
+blib
+blib/
+MANIFEST
+META.yml
