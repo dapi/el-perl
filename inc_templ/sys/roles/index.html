@@ -1,0 +1,16 @@
+[% INCLUDE inc/header %]
+<h2>Роли</h2>
+<table class=list cellspacing=0>
+<tr><th>N</th><th>Имя</th><th>Описание</th></tr>
+[% FOREACH p = result %]
+<tr [% IF loop.index % 2 %]class=t1[% END %]>
+<td>$p.id</td>
+<td><a href="${uri.home}$config.uri.roles/edit?id=$p.id">[% p.name || p.id %]</a></td>
+<td>$p.title</td>
+</tr>
+[% END %]
+</table>
+<br>
+<a href="${uri.home}$config.uri.roles/add">Добавить роль</a>
+
+[% INCLUDE inc/footer %]

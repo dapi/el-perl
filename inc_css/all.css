@@ -1,0 +1,181 @@
+
+body, td, th { font-size: 13px; font-family: 'Trebuchet MS', Arial, sans-serif;}
+
+th{ text-align:left; padding-right: 10px; color: #999; font-weight: normal; vertical-align: top }
+
+textarea, select, input {  font-size: 13px; font-family: Verdana, Arial, 'Geneva CY', sans-serif;}
+
+textarea.inline, input.inline {  border: 1px dashed #999; padding-left: 4px; padding-right: 4px; color: #006600 }
+textarea.inline:focus, input.inline:focus {  border: 1px solid #999; background: #eee; color: black }
+
+input.code {  border: 1px dashed #999; padding-left: 4px; padding-right: 4px; color: #006600; font-size: 24px;  }
+input.code:focus {  border: 1px solid #999; background: #eee;  }
+
+input.submit {  border: 1px solid #fff;padding-left: 6px; padding-right: 6px; padding-bottom: 3px; padding-top: 1px; color: white; background: green; color: white; font-weight: bold; font-size: 11px }
+input.submit:focus {  border: 1px solid #999; padding-left: 6px; padding-right: 6px; padding-bottom: 3px; padding-top: 1px; color: white; background: #faa61a;  }
+
+div#content {  }
+div#page {  }
+
+h1{  color:#faa61a; margin-bottom: 25px; }
+
+h2{ padding-top:5px; padding-bottom: 0px; margin-top:15px; margin-bottom: 15px; }
+
+h2.s2 {   font-family: Verdana; color:#faa61a; }
+
+h3{ padding-top:0px; padding-bottom: 0px;
+  margin-top:25px;  /* pay.html */
+  margin-bottom: 10px }
+
+small { color: #999 }
+
+
+/* ссылка указатель с треугольником */
+a.t {      white-space: nowrap;
+        background: url('/pic/tr.gif') no-repeat 0px 6px;
+        padding-left: 10px;
+        margin-right: 4px;
+        padding-right: 20px;
+ }
+
+a.t#current {      white-space: nowrap;
+        background: url('/pic/td.gif') no-repeat 0px 8px;
+  color: black;
+        padding-left: 12px;
+        margin-right: 4px;
+        padding-right: 18px;
+        font-weight: bold;
+ }
+
+a.tu {      white-space: nowrap;
+        background: url('/pic/tu.gif') no-repeat 50px 6px;
+        margin-right: 4px;
+        padding-right: 20px;
+ }
+
+
+
+a.small { color: #333; text-decoration: none }
+a.small:hover { color: green;text-decoration: underline }
+
+a:hover { color: green }
+
+a:visited { color: #339 }
+a.r#current { font-weight: bold; }
+
+
+.block { padding-top: 5px }
+
+.r a:hover { color: green }
+
+ul.r { 	list-style: none;
+	padding-left: 0px;
+        margin-left: 0px;
+	/* text-indent: -1em; */
+     }
+ul.r li {
+  background: url('/pic/triag_yellow.gif') no-repeat 0px 7px;
+  padding-left: 10px;
+  margin-right: 4px;
+  margin-left: 0px;
+  padding-right: 2px;
+  padding-bottom: 2px; padding-top: 2px;
+}
+
+ul.r2 {
+  list-style: none;
+  margin-left: 0px;
+/*  padding-top: 2px; */
+  padding-top: 2px;
+  padding-bottom: 2px; /* 6 не ставлю из-за того что растояние большое до нового ul */
+  padding-left: 0px;
+  /* text-indent: -1em; */
+}
+ul.r2 li {
+background: none;
+/*  background: url('/pic/py.gif') no-repeat 0px 8px; */
+  font-size: 11px;
+  padding-left: 10px;
+  margin-right: 4px;
+  padding-right: 2px;
+  padding-bottom: 2px; padding-top: 2px;
+}
+
+
+
+ul.t { 	list-style: none;
+	padding-left: 5px;
+	/* text-indent: -1em; */
+     }
+ul.t li {
+        background: url('/pic/tr.gif') no-repeat 0px 6px;
+        padding-left: 12px;
+        margin-right: 4px;
+        padding-right: 2px;
+padding-bottom: 2px; padding-top: 2px;
+}
+
+div.t {
+/*        background: url('/pic/tr.gif') no-repeat 0px 6px;
+        padding-left: 12px;
+        padding-right: 5px;*/
+        padding-bottom: 15px; padding-top: 0px;
+        width: 235;
+}
+
+div.t3 {
+/*        background: url('/pic/tr.gif') no-repeat 0px 6px;
+        padding-left: 12px;
+        padding-right: 5px;*/
+        padding-bottom: 15px; padding-top: 0px;
+        width: 150;
+}
+
+
+
+div.s { padding-top: 8px; padding-left: 9px; }
+
+br { clear: both }
+
+
+/* путь */
+div.path {  padding-top: 24px; color: #ccc;  }
+.path a { color: #999 }
+.path a:hover { color: black;  }
+.path a#current {  text-decoration: none }
+.path a#current:hover { text-decoration: underline }
+
+
+/* название медиа ресурсов фильмы, музыка и тп */
+
+a.m_title { color:#f0a00a; font-weight: bold; font-size: 14px; font-family: Arial, Verdana, sans-serif; text-decoration: none }
+a.m_title:hover { color:#faa61a; text-decoration: underline }
+a.m_title:visited { color:#faa61a }
+/* color:#faa61a; */
+.telefon { color:#faa61a; font-weight: bold }
+
+/* маленький текст чуть ниже */
+.s { color: #999; font-size: 10px; font-family: Arial, Verdana, 'Geneva CY', sans-serif; }
+
+
+.err {  color: red }
+.warn {  color: green; font-weight: bold; font-size: 14px; }
+
+form {margin: 0;}
+
+td.title {  padding-bottom: 25px; color:#666; font-weight: bold; font-family: Verdana, Arial, 'Geneva CY', sans-serif; font-size: 14px }
+
+table.form th	{ color: black; font-weight: normal; padding-left: 20px; padding-right: 5px; text-align: right }
+table.form td	{ padding-bottom: 5px;  }
+table.form tr.space td	{ padding-top: 20px;  }
+table.form tr.space th	{ padding-top: 20px;  }
+
+table.content td.t	{padding-left: 0px; padding-bottom: 10px; color: #ccc; font-family: Verdana, Arial, 'Geneva CY', sans-serif; font-weight: bold;}
+table.content td	{padding-left: 10px; padding-top: 2px; padding-bottom: 2px; vertical-align: top}
+table.content th	{padding:2px 10px 2px 0; line-height:1.2em; background:url('/pic/dots.gif') repeat-x bottom right; vertical-align: bottom}
+table.content th span	{background-color:white; padding-right:2px;}
+
+
+.news { font-size: 12px; color: #333; padding-bottom: 20px }
+.news_title { font-weight: bold; padding-bottom: 4px;color: black; font-size: 13px; }
+.news_date {  color: #ea8000; padding-right: 6px; font-size: 12px; }

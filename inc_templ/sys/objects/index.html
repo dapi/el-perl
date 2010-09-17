@@ -1,0 +1,27 @@
+[% INCLUDE inc/header %]
+
+<h2>Объекты</h2>
+[% PROCESS show_tree tree=result %]
+
+<a class=admin href="${uri.home}$config.uri.objects/add">Добавить страницу</a>
+
+[% INCLUDE inc/footer %]
+
+
+[% BLOCK show_tree %]
+
+<ul>
+[% FOREACH p = tree %]
+<li><a class=wo href="${uri.home}$config.uri.objects/edit?id=$p.id">[% IF p.is_closed %]<i style="color: gray">[% p.title || p.path || p.id %]</i>[% ELSE %][% p.title || p.path || p.id %][% END %]</a> <span style="color: gray">($p.path; <span style='color: #f99'>[% PROCESS show_roles  %]</span>)</span>
+[% IF p.childs.size %]
+[% PROCESS show_tree tree=p.childs %]
+[% END %]
+</li>
+[% END %]
+</ul>
+
+[% END %]
+
+[% BLOCK show_roles %]
+[% IF p.anon_access %]всем[% ELSE %][% p.roles.keys.join(', ') %][% END %]
+[% END %]

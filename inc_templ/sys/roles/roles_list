@@ -1,0 +1,5 @@
+<select name=roles multiple size=$context.roles.size>
+     [% FOREACH r = context.roles %]
+     <option value=$r.id [% IF roles.${r.name} %]selected[% END %]>$r.name</option>
+     [% END %]
+     </select>

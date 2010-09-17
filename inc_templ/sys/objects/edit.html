@@ -1,0 +1,96 @@
+[% USE HTML %]
+[% INCLUDE inc/header %]
+
+
+<table cellpadding=0 cellspacing=0 border=0><tr><td valign=top>
+
+[% IF result.id %]
+<h2>Редактирование объекта #$result.id</h2>
+<form method=post action="${uri.home}$config.uri.objects/edit">
+<input name=id value="$result.id" type=hidden>
+[% ELSE %]
+<h2>Добавить объект</h2>
+<form method=post action="${uri.home}$config.uri.objects/add">
+[% END %]
+
+
+<table class=form>
+<tr><td>Путь:</td><td><input name=path [% IF data.fields.is_closed %] disabled [% END %] type=text size=50  style="width:100%" value="[% HTML.escape(data.fields.path) %]"></td></tr>
+<tr><td>Папка</td><td><select name=parent_id [% IF data.fields.is_closed %] disabled [% END %] ><option value=0>КОРЕНЬ</option>
+[% PROCESS tree tree=data.parents level=1 %]
+</select>
+&nbsp;
+Порядковый номер: <input name=list_order type=text size=5 value="[% HTML.escape(data.fields.list_order) || 1 %]">
+</td></tr>
+
+<tr><td valign=top>Доступ:</td><td valign=top>
+<select name=roles multiple size=[% context.roles.size + 1 %]>
+<option value=all [% IF data.fields.anon_access OR !result.id  %]selected[% END %]>всем</option>
+     [% FOREACH r = context.roles %]
+     <option value=$r.id [% IF data.fields.roles.${r.name} %]selected[% END %]>$r.name</option>
+     [% END %]
+     </select>
+
+Выводить список подстраниц: <input name=show_children type=checkbox [% IF data.fields.show_children %]checked[% END %]>
+</td>
+
+</tr>
+</table>
+
+
+
+<h3>Название страницы:</h3>
+<div class=form>
+<input name=title type=text size=50  style="width:100%"  value="[% HTML.escape(data.fields.title) %]">
+<h3>Текст:</h3>
+<textarea name=text cols=40 rows=20 style="width:100%">[% HTML.escape(data.fields.text) %]</textarea></p>
+<input class=submit name=ok type=submit value="Сохранить изменения">
+
+</div>
+[% UNLESS data.fields.is_closed %]<a href="${uri.home}$config.uri.objects/delete?id=$result.id">Удалить страницу</a><br>[% END %]
+[% IF user.is_root %]
+<p>Защита от удаления: <select name=is_closed>
+<option value=0>нет</option>
+<option value=1 [% IF data.fields.is_closed %]selected[% END %]>да</option>
+</select>
+</p>
+[% END %]
+</form>
+
+
+
+</td></tr>
+
+<tr><td valign=top>
+<h2>Фотографии прикрепленные к странице</h2>
+[% IF result.id %]
+<form method=post action="${uri.home}$config.uri.objects/image"  enctype="multipart/form-data">
+<input name=object_id value="$result.id" type=hidden>
+<input name=file type=file size=15>
+<input type=submit class=submit name=load value="Загрузить фото">
+</form>
+[% END %]
+<table cellpadding=2 cellspacing=0>
+[% FOREACH i = result.images %]
+<tr>
+<td>Имя: \$images[<b>$i.name</b>] / <a href="${uri.home}$config.uri.objects/image?object_id=$result.id&image=[% i.name | uri %]&delete=1">Удалить</a>
+/ [% IF result.image.name==i.name %]<b>основное изображение</b>[% ELSE %]<a href="${uri.home}$config.uri.objects/image?object_id=$result.id&image=[% i.name | uri %]&make_general=1">Сделать основным</a>[% END %]
+<br>
+<img src="/pic/objects/$result.id-$i.name" width="$i.width" height="$i.height"></td>
+</tr>
+[% END %]
+</table>
+
+</td></tr>
+</table>
+
+[% INCLUDE inc/footer %]
+
+[% BLOCK tree %]
+[% FOREACH p = tree %]
+[% UNLESS p.id==result.id %]<option value=$p.id [% IF data.fields.parent_id==p.id %]selected[% END %]>[% FOREACH [1..level] %]-[% END %] $p.title</option>[% END %]
+[% IF p.childs %]
+[% INCLUDE tree tree=p.childs level=level+1 %]
+[% END %]
+[% END %]
+[% END %]

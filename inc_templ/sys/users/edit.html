@@ -1,0 +1,26 @@
+[% USE HTML %]
+[% INCLUDE inc/header %]
+
+[% IF result.id %]
+<h2>Редактирование пользователя</h2>
+<form method=get action="${uri.home}$config.uri.users/edit">
+<input name=id value="$result.id" type=hidden>
+[% ELSE %]
+<h2>Добавить пользователя</h2>
+<form method=post action="${uri.home}$config.uri.users/add">
+[% END %]
+
+<table class=form>
+<tr><td>Логин:</td><td><input name=login type=text size=15 value="[% HTML.escape(data.fields.login) %]"></td></tr>
+<tr><td>Имя:</td><td><input name=name type=text size=50 value="[% HTML.escape(data.fields.name) %]"></td></tr>
+<tr><td>Переустановить пароль:</td><td><input name=password type=text size=50 type=text></td></tr>
+<tr><td valign=top>Роли:</td><td>[% INCLUDE sys/roles/roles_list roles=data.fields.roles %]</td></tr>
+<tr><td colspan=2><input name=ok type=submit class=submit value="Сохранить изменения"></td></tr>
+</table>
+</form>
+<br>
+[% UNLESS data.fields.is_root %]
+<a href="${uri.home}$config.uri.users/delete?id=$data.fields.id" class=admin>Удалить пользователя</a>
+[% END %]
+
+[% INCLUDE inc/footer %]

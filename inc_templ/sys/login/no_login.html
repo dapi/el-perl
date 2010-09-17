@@ -1,0 +1,15 @@
+[% INCLUDE inc/header %]
+
+<div id=content>
+<h2>Неверный логин</h2>
+
+[% IF data.login_result=='no_user' %]
+Нет такого пользователя
+[% ELSIF data.login_result=='bad_password' %]
+Неверный пароль
+[% ELSE %]
+Ошибка входа
+[% END %]
+
+</div>
+[% INCLUDE inc/footer %]

@@ -1,0 +1,17 @@
+[% INCLUDE inc/header %]
+<h2>Пользователи</h2>
+<table class=list cellspacing=0>
+<tr><th>N</th><th>Логин</th><th>Имя</th><th>Роли</th></tr>
+[% FOREACH p = result %]
+<tr [% IF loop.index % 2 %]class=t1[% END %]>
+<td>$p.id</td>
+<td><a href="${uri.home}$config.uri.users/edit?id=$p.id">$p.login</a></td>
+<td>$p.name</td>
+<td>[% p.roles.keys.join(', ') || '-' %]</td>
+</tr>
+[% END %]
+</table>
+<br>
+<a href="${uri.home}$config.uri.users/add">Добавить пользователя..</a>
+
+[% INCLUDE inc/footer %]

@@ -1,0 +1,64 @@
+[% INCLUDE inc/header %]
+
+
+[% PROCESS show_errors %]
+
+
+<div id="content">
+<form name="sign" class="post" method="post" action="${uri.home}$config.uri.login/sign">
+<h2>Регистрационная форма</h2>
+<p>Регистрация на сайте позволит вам совершать покупки в интернет-магазине и оставлять отзывы и комментарии.</p>
+<table border="0" class="form">
+
+[% PROCESS show_field field='login' name='Логин' %]
+[% PROCESS show_field field='name' name='Имя' %]
+
+<tr><th width="35%" >Пароль</th>
+<td><input name="password" type="password" size="25" value=""></td></tr>
+<tr><th width="35%" >Повторите пароль</th>
+<td><input name="password2" type="password" size="25" value=""></td></tr>
+<tr><td colspan=2><br></td></tr>
+<tr><th width="35%" >E-mail</th>
+<td><input name="email" type="text" size="25" value="[% data.form.fields.email | text %]"></td></tr>
+<tr><td colspan=2><br></td></tr>
+<tr><td>&nbsp;</td><td><input name="ok" type="submit" value="Зарегистрироваться"></td></tr>
+</table>
+</form>
+
+</div>
+[% INCLUDE inc/footer %]
+
+[% BLOCK show_field %]
+<tr><th width="35%" [% IF data.form.bad_fields.$field %]style='color: red; font-weight: bold'[% END %]>$name</th>
+<td><input name="$field" class="u" type="text" size="25" value="[% data.form.fields.$field | text %]"></td></tr>
+[% END %]
+
+[% BLOCK show_errors %]
+[% IF data.form.errors %]
+
+[%# варианты ошибок: email - неверный email,
+obligated - обязательный параметр
+password - пароли не совпадают
+login - неверный симполы в логине, должны быть a-z 0-9 _ .
+notunique - такой пользователь уже есть
+
+%]
+
+<ul>Ошибки в форме:
+[% FOREACH error = data.form.errors %]
+[% PROCESS "err_$error.error"%]
+[% END %]
+</ul>
+
+[% END %]
+[% END %]
+
+
+[% BLOCK err_obligated %]
+<li>Не указан параметр $error.field</li>
+[% END %]
+
+
+[% BLOCK err_password %]
+<li>Пароли не совпадают</li>
+[% END %]

@@ -1,0 +1,56 @@
+
+/* Список */
+
+table.list th { padding: 4px 5px 4px 10px; text-align: left; color: #999; font: normal 11px Verdana;
+                 border-bottom: 1px dashed #ccc; border-top: 1px dashed #ccc; }
+table.list td { padding: 4px 10px 4px 10px; border-bottom: 1px dashed #ccc; font-size: 12px;}
+table.list tr.t1 td { background: #eee }
+table.list tr.th td { border-top: 1px dashed #ccc; }
+
+table.list th:first-child { padding: 4px 10px 4px 5px; border-left: 1px dashed #ccc; }
+table.list td:first-child { padding: 4px 10px 4px 5px; border-left: 1px dashed #ccc;}
+table.list th:last-child { padding: 4px 10px 4px 5px; border-right: 1px dashed #ccc;}
+table.list td:last-child { padding: 4px 10px 4px 5px; border-right: 1px dashed #ccc;}
+
+table.list tr.tb td { border-left: none; border-right: none; border-bottom: none; }
+table.list tr.t0 td { border: none }
+
+
+
+/* Статистика */
+   table.log { padding: 0px; border-collapse: separate; border-spacing: 1px }
+
+   table.log tr th {
+      padding: 7px 5px 0px 7px;
+      color: #777777; text-align: left;
+      background-color: #cccccc;
+      font-size: 10px;
+  font-family: Arial, Verdana, 'Geneva CY', sans-serif;
+   }
+   table.log tr td {
+  /*  margin:  cellspacing */
+  /* padding:  cellpading */
+      padding: 6px 10px 1px 7px;
+      color: #333333; text-align: left;
+      vertical-align: top;
+      font-size: 10px;
+  font-family: Arial, Verdana, 'Geneva CY', sans-serif;
+   }
+
+   table.log tr#t0 td { background-color: #e0e0e0; }
+   table.log tr#t1 td { background-color: #f0f0f0; }
+   table.log tr#tt0 td { background-color: #e0f0e0; }
+   table.log tr#tt1 td { background-color: #f0fff0; }
+
+
+
+/* Список домов */
+table.llist { padding: 0px; border-collapse: separate; border-spacing: 1px }
+
+table.llist tr td {
+      padding: 3px 20px 3px 0px;
+      color: #333333; text-align: left;
+      vertical-align: top;
+      font-size: 9px;
+  font-family: Arial, Verdana, 'Geneva CY', sans-serif;
+   }

@@ -1,0 +1,20 @@
+
+1) Установка биллиотеки el
+
+
+perl Makefile.PL
+make
+make install
+
+или
+
+ln -s . /usr/lib/perl5/гле_там_лежат_перловые_либки
+
+
+
+2) Новый проект по рельсам
+
+cd rails
+./utils/install_rails.sh ИМЯ_СИСТЕМЫ ПУТЬ ХОСТ
+
+Смотри ./rails/doc/install.txt и ./rails/doc/*

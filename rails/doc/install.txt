@@ -1,0 +1,7 @@
+Переменные (в виде ${VAR}):
+
+Запускать utils/install_rails.sh SYSTEM FULL_PATH HOSTNAME
+
+Где SYSTEM - имя системы в пути apache, имя базы данных и имя perl-модулей.
+
+Заглянуть в site.conf, db.conf, processors.conf, pages.conf

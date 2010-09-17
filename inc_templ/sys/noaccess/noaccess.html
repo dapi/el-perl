@@ -1,0 +1,10 @@
+[% INCLUDE inc/header %]
+
+<h2>Нет доступа</h2>
+
+$result
+
+[% INCLUDE sys/login/login %]
+[%# "$result.value" result.user %]
+
+[% INCLUDE inc/footer %]

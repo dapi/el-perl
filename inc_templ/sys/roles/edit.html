@@ -1,0 +1,19 @@
+[% USE HTML %]
+[% INCLUDE inc/header %]
+
+[% IF result.id %]
+<h2>Редактирование роли</h2>
+<form method=post action="${uri.home}$config.uri.roles/edit">
+<input name=id value="$result.id" type=hidden>
+[% ELSE %]
+<h2>Добавить страницу</h2>
+<form method=post action="${uri.home}$config.uri.roles/add">
+[% END %]
+<table>
+<tr><td>Имя:</td><td><input name=name type=text size=5 value="[% HTML.escape(data.fields.name) %]"></td></tr>
+<tr><td>Описание:</td><td><input name=title type=text size=50 value="[% HTML.escape(data.fields.title) %]"></td></tr>
+<tr><td colspan=2><input name=ok type=submit value="Ok"></td></tr>
+</table>
+</form>
+
+[% INCLUDE inc/footer %]

@@ -1,0 +1,34 @@
+[% IF user %]
+<table border="0" cellpadding="0"><tr><td><label>Привет, $user.login</label></td></tr>
+<tr><td>
+<a href="$config.uri.login/logout" style="font-size: 12px;color:#777777;line-height:20px;">Выход</a>
+
+[% IF user.roles.office %][% END %]
+
+</td></tr></table>
+
+</div>
+[% ELSE %]
+
+[% IF data.login_result=='no_user' %]error[% END %]
+
+<form method="post" action="$config.uri.login/login" class=login>
+<table border="0">
+<!-- <tr><td colspan="2"><b>Войти</b></td></tr> -->
+
+<tr><td width="10%" nowrap="nowrap"><label for="Username">Логин</label></td>
+<td><input type="text" name="login" size=12 value=""></td></tr>
+
+<tr><td width="10%" nowrap="nowrap"><label for="Password">Пароль</label></td>
+<td><input type="Password" size=12 name="password" value=""></td></tr>
+
+<tr><td> </td><td><input type="submit" name="buttonEnter" value="Войти"></td></tr>
+
+<!--<tr><td></td>
+<td>
+<a href="$config.uri.login/forget">Напомнить пароль</a><br>
+<a href="$config.uri.login/sign">Регистрация</a></td></tr>
+-->
+</table>
+</form>
+[% END %]

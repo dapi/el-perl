@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-/W3C/DTD HTML 4.0 Transitional/EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><head>
+<!--<link rel="SHORTCUT ICON" href="/pic/icon.ico">-->
+<title>title</title>
+<link rel="StyleSheet" href="/css/sys/all.css" type="text/css">
+<link rel="StyleSheet" href="/css/sys/login.css" type="text/css">
+<link rel="StyleSheet" href="/css/sys/list.css" type="text/css">
+<link rel="StyleSheet" href="/css/stylez.css" type="text/css">
+</head>
+<!-- leftmargin="0" rightmargin="0" marginwidth="0" topmargin="0" marginheight="0"-->
+<body bgcolor="white" text="black" link="#333399" ><a name=top></a>
+
+<table border=0>
+<tr><td valign=top width="150">logo</td>
+
+<td valign=top>
+
+[% menu = [
+{path=>"/",title=>"Главная"},
+{path=>"/roles/",title=>"Роли"},
+{path=>"/users/",title=>"Пользователи"},
+{path=>"/objects/",title=>"Объекты"},
+] %]
+
+[% INCLUDE sys/menu %]
+<hr>
+</td></tr>
+<td width="150" valign=top>[% INCLUDE sys/login/login %]</td>
+<td valign=top>
